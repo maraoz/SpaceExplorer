@@ -7,8 +7,7 @@ public class SolarSystemFactory : MonoBehaviour
 
 	public CelestialBody planetPrefab;
 	public CelestialBody sunPrefab;
-
-
+	public CelestialBody asteroidPrefab;
 
 	public void Start()
 	{
@@ -26,6 +25,12 @@ public class SolarSystemFactory : MonoBehaviour
 				CelestialBody moon = GameObject.Instantiate(planetPrefab) as CelestialBody;
 				moon.Initialize(body, Random.onUnitSphere * 90f, Random.value * 25f + 20f, Random.value * 5f, Random.value * maxOrbitalVelocity * .5f);
 			}
+		}
+
+		for(int i = 0; i < 2000; i++)
+		{
+			CelestialBody asteroid = GameObject.Instantiate(asteroidPrefab) as CelestialBody;
+			asteroid.Initialize(sun, Random.onUnitSphere * 180f, Random.value * 50f + 500f, Random.value * 10f + 1f, Random.value * maxOrbitalVelocity * .5f);
 		}
 	}
 }

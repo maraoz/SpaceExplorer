@@ -11,6 +11,7 @@ public class CelestialBody : MonoBehaviour
 	private float orbitalVelocity;
 
 	private Transform trans;
+	private Vector3 bodyAxis;
 
 	public void Awake()
 	{
@@ -23,7 +24,10 @@ public class CelestialBody : MonoBehaviour
 		if (parentBody)
 			TransformUtils.Bind (this.trans, parentBody.trans, true);
 
+		bodyAxis = Random.onUnitSphere;
+
 		body.localScale = Vector3.one * scale;
+		body.localRotation = Random.rotation;
 
 		this.orbitSize = orbitSize;
 		this.orbitAxis = orbitAxis;
@@ -34,5 +38,6 @@ public class CelestialBody : MonoBehaviour
 	{
 		float t = Time.time * orbitalVelocity / orbitSize;
 		this.trans.localPosition = Quaternion.Euler(orbitAxis) * new Vector3(Mathf.Cos(t), Mathf.Sin(t), 0f) * orbitSize;	
+		body.localRotation *= Quaternion.Euler(bodyAxis);
 	}
 }
