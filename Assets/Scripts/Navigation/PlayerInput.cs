@@ -27,7 +27,7 @@ public class PlayerInput : MonoBehaviour
 		Vector3 deltaMouse = Input.mousePosition - mousePosition;
 		mousePosition = Input.mousePosition;
 
-		nav.Orient (Quaternion.Euler (new Vector3(deltaMouse.y, deltaMouse.x, 0f) * orientSensibility));
+		nav.Orient (deltaMouse.y * orientSensibility, deltaMouse.x * orientSensibility);
 	}
 
 	public void UpdateAcceleration()
