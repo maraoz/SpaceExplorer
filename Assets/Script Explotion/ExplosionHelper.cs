@@ -5,8 +5,8 @@ public class ExplosionHelper : MonoBehaviour {
 
 	public static ExplosionHelper Instance;
 
-  public ParticleSystem effectYellow;
-  public ParticleSystem effectRed;
+  public ParticleSystem fireEffect;
+  public ParticleSystem smokeEffect;
 
 	void Awake () {
 		if (Instance != null) {
@@ -17,8 +17,8 @@ public class ExplosionHelper : MonoBehaviour {
 	}
 	
 	public void Explosion(Vector3 position) {
-		instantiate(effectRed, position);
-		instantiate(effectYellow, position);
+		instantiate(fireEffect, position);
+		instantiate(smokeEffect, position);
 	}
 
 	private ParticleSystem instantiate(ParticleSystem prefab, Vector3 position) {
