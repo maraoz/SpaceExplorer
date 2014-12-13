@@ -13,7 +13,7 @@ public class SolarSystemFactory : MonoBehaviour
 	{
 		CelestialBody sun = GameObject.Instantiate (sunPrefab) as CelestialBody;
 
-		sun.Initialize (null, Random.onUnitSphere, Random.value * 50f, Random.value * 100f + 100f, 1f);
+		sun.Initialize (null, Random.onUnitSphere, Random.value * 50f, 100f, 1f);
 
 		GameObject player = GameObject.Find ("Player");
 
